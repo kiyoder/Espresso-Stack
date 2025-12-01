@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: springboot
+  datasource:
+    # JDBC connection URL to your PostgreSQL database.
+    # Modify 'localhost', port '5432', or database name 'postgre_db' if your DB location changes.
+    url: jdbc:postgresql://localhost:5432/user_management_db
+
+    # Database username — change if using a different DB user.
+    username: postgres
+
+    # Database password — update if credentials change.
+    password: postgres
+
+    # PostgreSQL JDBC driver class — normally no need to modify.
+    driver-class-name: org.postgresql.Driver
+
+    jpa:
+      hibernate:
+        # ddl-auto controls schema generation:
+        # 'update' updates the schema automatically.
+        # Possible values: none | validate | update | create | create-drop
+        # Modify only if you want different schema behavior.
+        ddl-auto: update
+
+      properties:
+        hibernate:
+          # Hibernate dialect for PostgreSQL — do not change unless switching DB types.
+          dialect: org.hibernate.dialect.PostgreSQLDialect

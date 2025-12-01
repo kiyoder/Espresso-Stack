@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NxAngularConfigService" workspaceLocation="file://$PROJECT_DIR$/nx.json">
+    <projects>
+      <project name="backend" file="file://$PROJECT_DIR$/backend/springboot/project.json" />
+      <project name="frontend" file="file://$PROJECT_DIR$/frontend/my-expo-app/project.json" />
+      <project name="serve-all" file="file://$PROJECT_DIR$/project.json" />
+    </projects>
+  </component>
+</project>

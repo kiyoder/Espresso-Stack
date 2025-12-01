@@ -1,0 +1,19 @@
+{
+  "name": "monorepo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd frontend/my-expo-app && npx expo start",
+    "backend": "cd backend/springboot && mvnw.cmd spring-boot:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "nx": "22.1.3"
+  },
+  "nx": {}
+}

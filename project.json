@@ -1,0 +1,16 @@
+{
+  "_comment": "Implementation does not work, this serves as placeholder for future reference.",
+  "name": "serve-all",
+  "root": ".",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx serve frontend & nx serve backend",
+        "cwd": ".",
+        "parallel": false
+      }
+    }
+  }
+}

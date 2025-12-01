@@ -1,0 +1,45 @@
+{
+  "name": "frontend",
+  "root": "frontend/my-expo-app",
+  "sourceRoot": "frontend/my-expo-app",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx expo start",
+        "cwd": "frontend/my-expo-app",
+        "parallel": false,
+        "forwardAllArgs": true
+      }
+    },
+    "android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx expo start --android",
+        "cwd": "frontend/my-expo-app",
+        "parallel": false,
+        "forwardAllArgs": true
+      }
+    },
+    "ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx expo start --ios",
+        "cwd": "frontend/my-expo-app",
+        "parallel": false,
+        "forwardAllArgs": true
+      }
+    },
+    "web": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx expo start --web",
+        "cwd": "frontend/my-expo-app",
+        "parallel": false,
+        "forwardAllArgs": true
+      }
+    }
+  }
+}
+
