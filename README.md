@@ -11,12 +11,97 @@ Quick overview
 - Monorepo: Nx used to manage project tasks and targets (optional)
 - Purpose: template + step-by-step recreation notes in this README
 
-Repository layout (example)
+Repository Layout Structure
 ---------------------------
 - frontend/
     - my-expo-app/      (Expo app created with NativeWind)
 - backend/
     - springboot/       (Spring Boot project)
+
+Installation / Setup Instructions
+-----------------------------------
+Follow these steps to configure and run the template locally.
+
+1. Clone the repo
+```bash
+git clone https://github.com/kiyoder/Espresso-Stack.git
+cd Espresso-Stack
+```
+
+2. Configure the Spring Boot application (required)
+- Open `backend/springboot/src/main/resources/application.yaml`
+- Edit the datasource section to point to your PostgreSQL instance. Example:
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgresql_db
+    username: YOUR_DB_USER
+    password: YOUR_DB_PASSWORD
+```
+- Ensure the database (`postgresql_db` in the example) exists in PostgreSQL. You can create it using pgAdmin or psql:
+    - In pgAdmin: connect to your server → right-click Databases → Create → Database → give it the same name used in `application.yaml`.
+
+3. Install frontend dependencies
+```bash
+cd frontend/my-expo-app
+npm install
+# For web support
+npx expo install react-dom react-native-web
+cd ../../
+```
+
+
+5. Run the apps (two options)
+- Recommended (run from root in separate terminals):
+```bash
+# Terminal 1 (starts the Spring Boot backend)
+npm run backend
+
+# Terminal 2 (starts the Expo frontend)
+npm run frontend
+```
+- Manual / Alternative:
+    - Backend (Unix/macOS):
+      ```bash
+      cd backend/springboot
+      ./mvnw spring-boot:run
+      ```
+    - Backend (Windows):
+      ```bash
+      cd backend/springboot
+      mvnw.cmd spring-boot:run
+      ```
+    - Frontend:
+      ```bash
+      cd frontend/my-expo-app
+      npx expo start
+      ```
+
+Notes about IntelliJ (Backend)
+------------------------------
+- Spring Boot usually auto-detects when you import the module. If it doesn't, do the following:
+
+1. Import the Spring Boot module
+- File > Project Structure > Project Settings > Modules > Add > Import Module
+- Select `backend/springboot/pom.xml` and import.
+
+2. Set the SDK / JDK for the module
+- Open `SpringbootApplication.java` in `backend/springboot/src/main/java/com/backend/springboot/SpringbootApplication.java`
+- Click "Setup SDK" (top-right) or: File > Project Structure > Project Settings > Project
+- Choose or download the JDK (Java 21 recommended for this template).
+
+3. Create a Spring Boot run configuration (if IntelliJ didn't create one)
+- Run > Edit Configurations > Add (+) > Spring Boot
+- Name: Springboot Application
+- Module: select the `springboot` module (openjdk-21 - springboot or similar)
+- Main class: `com.backend.springboot.SpringbootApplication`
+- Apply and Run.
+
+Notes about Expo / Frontend in IDE
+----------------------------------
+- You can run the frontend directly from a terminal:
+    - cd `frontend/my-expo-app` and run `npx expo start`
+
 
 How I created this monorepo (repro steps)
 -----------------------------------------
